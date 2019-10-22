@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card text-center">
+    <div class="card-body">
+        <h1>Welcome to Tolly</h1>
+        <a href="{% url 'items:index' %}" class="btn btn-dark">Login</a>
+    </div>
+</div>
+
+{% endblock  %}
