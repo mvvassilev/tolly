@@ -9,3 +9,7 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Storage(models.Model):
+    objects = models.Manager()

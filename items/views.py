@@ -12,3 +12,11 @@ def index(request):
 def filter(request, item_code):
     item = Item.objects.filter(pk=item_code)
     return render(request, 'items/{{ item.name }}.html', {'item': item})
+
+
+def storage(request):
+    return render(request, 'items/storage.html')
+
+
+def sales(request):
+    return render(request, 'items/sales.html')
