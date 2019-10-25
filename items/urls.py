@@ -7,5 +7,5 @@ app_name = 'items'
 urlpatterns = [
     path('', views.index, name='index'),
     path('storage/', views.storage, name='storage'),
-    path('sales/', views.sales, name='sales')
+    path('regitems/', views.regitems, name='regitems')
 ]
