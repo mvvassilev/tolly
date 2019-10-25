@@ -4,26 +4,7 @@
 
 <div class="container-fluid  pb-5">
     <h1 class='display-4 ml-5'>Sales manager</h1>
-    {% if items_list %}
-        {% for item in items_list %}
-        <div class="row mb-2 shadow">
-            <div class="col-1 bg-light">
-                {{ item.id }}
-            </div>
-            <div class="col-4 bg-secondary">
-                {{ item.name }}
-            </div>
-            <div class="col-1 bg-light">
-                ${{ item.price }}
-            </div>
-            <div class="col-6 bg-light">
-                {{ item.description }}
-            </div>
-        </div>
-        {% endfor %}
-    {% else %}
-        <p>No items available</p>
-    {% endif %}
-</div>
-    
+    <div class="row mb-2 shadow">
+        {% include 'partials/_salesitem.html' %}
+    </div>
 {% endblock %}
