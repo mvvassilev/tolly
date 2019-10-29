@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
-from .models import Item
+from .models import Item, Storage
 
 def index(request):
     items_list = Item.objects.all()
@@ -9,7 +9,9 @@ def index(request):
     return  render(request, 'items/index.html', context)
 
 def storage(request):
-    return render(request, 'items/storage.html')
+    storage_items = Storage.objects.all()
+    context = {'storage_items' : storage_items}
+    return render(request, 'items/storage.html', context)
 
 
 def regitems(request):
