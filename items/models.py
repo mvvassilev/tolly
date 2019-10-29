@@ -13,3 +13,8 @@ class Item(models.Model):
 
 class Storage(models.Model):
     objects = models.Manager()
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+
+    def __str__(self):
+        return self.item.name
