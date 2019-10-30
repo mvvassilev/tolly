@@ -14,8 +14,38 @@
             </form>
         </div>
         <div class='col-2'>
-            <button class="btn btn-outline-primary" type="submit">Add to storage</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPopUp">Add to storage</button>
         </div>
+        <div class="modal fade" id="addPopUp" tabindex="-1" role="dialog" aria-labelledby="addPopUpTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPopUpTitle">Add item to storage</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="dropdown">
+                        <a class="btn btn-white btn-outline-secondary dropdown-toggle mb-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">
+                            Select Item
+                        </a>
+
+                        <div class="dropdown-menu">
+                            {% for dropdown_item in items_list %}
+                                <a class="dropdown-item" href="#">{{ dropdown_item.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <input class="form-control mb-3" type="search" placeholder="Quantity">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <div class="row mb-2 shadow">
             <div class="col-1 bg-primary">

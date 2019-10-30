@@ -10,7 +10,8 @@ def index(request):
 
 def storage(request):
     storage_items = Storage.objects.all()
-    context = {'storage_items' : storage_items}
+    items_list = Item.objects.all()
+    context = {'storage_items' : storage_items, 'items_list' : items_list}
     return render(request, 'items/storage.html', context)
 
 
