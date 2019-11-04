@@ -27,53 +27,52 @@
                 </div>
                 <div class="modal-body">
                     <div class="dropdown">
-                        <a class="btn btn-white btn-outline-secondary dropdown-toggle mb-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">
-                            Select Item
-                        </a>
-
-                        <div class="dropdown-menu">
+                        <select class='custom-select mb-2' id='selected_item'>
+                            <option value="" selected disabled>Select Item</option>
                             {% for dropdown_item in items_list %}
-                                <a class="dropdown-item" href="#">{{ dropdown_item.name }}</a>
+                                <option value="{{ dropdown_item.name }}">{{ dropdown_item.name }}</option>
                             {% endfor %}
-                        </div>
+                        </select>
                     </div>
-                    <input class="form-control mb-3" type="search" placeholder="Quantity">
+                    <input id='selected_quantity' class="form-control mb-3" type="search" placeholder="Quantity">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <form action="{% url 'add_item' %}" method='POST'>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     </div>
     <div class="row mb-2 shadow">
-            <div class="col-1 bg-primary">
+            <div class="col-3 bg-primary">
                 ID
             </div>
             <div class="col-4 bg-primary">
                 Name
             </div>
-            <div class="col-1 bg-primary">
+            <div class="col-2 bg-primary">
                 Price
             </div>
-            <div class="col-6 bg-primary">
+            <div class="col-3 bg-primary">
                 Quantity
             </div>
         </div>
     {% if storage_items %}
         {% for item in storage_items %}
         <div class="row mb-2 shadow">
-            <div class="col-1 bg-light">
+            <div class="col-3 bg-light">
                 {{ item.id }}
             </div>
             <div class="col-4 bg-secondary">
                 {{ item.item.name }}
             </div>
-            <div class="col-1 bg-light">
+            <div class="col-2 bg-light">
                 ${{ item.item.price }}
             </div>
-            <div class="col-6 bg-light">
+            <div class="col-3 bg-light">
                 {{ item.quantity }}
             </div>
         </div>

@@ -20,23 +20,6 @@ class Storage(models.Model):
         return self.item.name
 
 
-    def stack(self, added_item):
-        for storage_item in Storage.objects.all():
-            if storage_item.item.name == added_item.item.name:
-                storage_item.quantity += added_item.quantity
-                Storage.objects.delete(pk=added_item.id)
-
-
-    def add_item(self, added_item, amount):
-        s = Storage(item=added_item, quantity=amount)
-        s.save()
-        for storage_item in Storage.objects.all():
-            if storage_item.item.name == added_item.name:
-                storage_item.quantity += amount
-                s.delete()
-        return f'Item added: {added_item.name}   Quantity:{amount}'
-
-
     def delete_item(self, item_id):
         storage_item = Storage.objects.filter(id=item_id)
         storage_item.delete()
