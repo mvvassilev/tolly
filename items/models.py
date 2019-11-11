@@ -18,14 +18,4 @@ class Storage(models.Model):
 
     def __str__(self):
         return self.item.name
-
-
-    def delete_item(self, item_id):
-        storage_item = Storage.objects.filter(id=item_id)
-        storage_item.delete()
-        return f'Item deleted: {storage_item.name}'
-
-
-    def search_item(self, item_id):
-        return Storage.objects.filter(id=item_id)
         

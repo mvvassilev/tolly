@@ -4,7 +4,8 @@
 
 
         <!-- FORM FOR ADDING ITEMS TO STORAGE -->
-        <form action="add_item" method="POST">
+        <form action="{% url 'items:add_item' %}" method='post'>
+            {% csrf_token %}
             <div class="modal-header">
                 <h5 class="modal-title" id="addPopUpTitle">Add item to storage</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
@@ -13,8 +14,8 @@
 
                 <!-- ITEM SELECT DROPDOWN MENU-->
                 <div class="dropdown">
-                    <select class="custom-select mb-2" id="selected_item">
-                        <option value="" selected disabled>Select Item</option>
+                    <select class="custom-select mb-2" id="selected_item" name='added_item_name'>
+                        <option value="item" selected disabled>Select Item</option>
                         {% for dropdown_item in items_list %}
                         <option value="{{ dropdown_item.name }}">
                         {{ dropdown_item.name }}
@@ -24,7 +25,7 @@
                 </div>
 
                 <!-- QUANTITY SELECT -->
-                <input id="selected_quantity" class="form-control mb-3" type="search" placeholder="Quantity" />
+                <input id="selected_quantity" type="number" name='added_item_quantity' class="form-control mb-3" placeholder="Quantity" />
 
             </div>
             <div class="modal-footer">
